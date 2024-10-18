@@ -1,5 +1,6 @@
 import socket
 import argparse
+from sys import exit as sysexit
 
 
 # On choisit une IP et un port où on va écouter
@@ -7,9 +8,22 @@ host = '10.1.1.11' # string vide signifie, dans ce conetxte, toutes les IPs de l
 port = 13337 # port choisi arbitrairement
 
 parser = argparse.ArgumentParser()
-parser.add_argument("port", help="port utilisé",type=int)
+parser.add_argument('-p', help="port utilisé",type=int, default=13337)
+if port < 0 or port > 65535:
+    print(f"ERROR -p argument invalide. Le port spécifié {port} n'est pas un port valide (de 0 à 65535).")
+    sysexit(1)
+if port >= 0 or port <= 1024:
+    print(f"ERROR -p argument invalide. Le port spécifié {port} est un port privilégié. Spécifiez un port au dessus de 1024.")
+    sysexit(2)
+
+parser.add_argument("-l", help="port utilisé",type=int)
+if host != r'([0–9]{1,3}.){3}.([0–9]{1,3})':
+    print(f"ERROR -l argument invalide. L'adresse {host} n'est pas une adresse IP valide.")
+    sysexit(3)
+# if host != :
+#     print(f"")
 args = parser.parse_args()
-print(args.port)
+# print(args)
 
 
 # On crée un objet socket
