@@ -12,6 +12,7 @@ args = parser.parse_args()
 
 port = args.port
 print(port)
+print(type(port))
 
 
 if port < 0 or port > 65535:
