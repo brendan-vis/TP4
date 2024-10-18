@@ -24,7 +24,6 @@ try:
             user_input = bytes(user_input, "utf-8")
             s.sendall(user_input)
         else:
-            print("ti")
             raise TypeError("Il manque le mot waf ou meo")
     else:
         raise TypeError("Seuls les strings sont autorisées")
@@ -38,5 +37,6 @@ try:
 
     # Affichage de la réponse reçue du serveur
     print(f"Le serveur a répondu {repr(data)}")
-except:
+except Exception as e:
+    print(e)
     sysexit()
