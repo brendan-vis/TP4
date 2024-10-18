@@ -20,7 +20,7 @@ if port >= 0 and port <= 1024:
     sysexit(2)
 
 host = args.listen
-if host != r'([0–9]{1,3}.){3}.([0–9]{1,3})':
+if host != r'^([0-9]{1,3}\.){3}[0-9]{1,3}$':
     print(f"ERROR -l argument invalide. L'adresse {host} n'est pas une adresse IP valide.")
     sysexit(3)
 
