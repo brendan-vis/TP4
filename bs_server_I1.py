@@ -5,13 +5,14 @@ from sys import exit as sysexit
 
 # On choisit une IP et un port où on va écouter
 host = '10.1.1.11' # string vide signifie, dans ce conetxte, toutes les IPs de la machine
-port = 13337 # port choisi arbitrairement
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-p', help="port utilisé",type=int, default=13337)
+parser.add_argument('-p', '--port', help="port utilisé",type=int, default=13337)
 args = parser.parse_args()
 
-if args["p"] < 0 or port > 65535:
+port = args.port
+
+if port < 0 or port > 65535:
     print(f"ERROR -p argument invalide. Le port spécifié {port} n'est pas un port valide (de 0 à 65535).")
     sysexit(1)
 if port >= 0 or port <= 1024:
