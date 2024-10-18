@@ -60,11 +60,39 @@ Que veux-tu envoyer au serveur : yo
 Le serveur a répondu b'Mes respects humble humain.'
 ```
 
-# 3. You say client I hear control
+## 3. You say client I hear control
 
 🌞 bs_client_I3.py
 
 [bs_client_I1.py](./bs_client_I1.py)
+
+```
+[brendan@server TP4]$ python bs_server_I1.py
+Un client vient de se co et son IP c'est ('10.1.1.12', 57380).
+Données reçues du client : b'meo'
+
+[brendan@client TP4]$ python bs_client_I1.py
+Connecté avec succès au serveur 10.1.1.11 sur le port 13337
+Que veux-tu envoyer au serveur : meo
+Le serveur a répondu b'Meo a toi confrere.'
+
+
+[brendan@server TP4]$ python bs_server_I1.py
+Un client vient de se co et son IP c'est ('10.1.1.12', 54318).
+
+[brendan@client TP4]$ python bs_client_I1.py
+Connecté avec succès au serveur 10.1.1.11 sur le port 13337
+Que veux-tu envoyer au serveur : erfd
+Il manque le mot waf ou meo
+```
+
+# II. You say dev I say good practices
+
+## 1. Args
+
+🌞 bs_server_II1.py
+
+[bs_client_I1.py](./bs_server_I1.py)
 
 ```
 
