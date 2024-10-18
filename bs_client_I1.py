@@ -39,4 +39,5 @@ try:
     print(f"Le serveur a répondu {repr(data)}")
 except Exception as e:
     print(e)
+    print(type(e))
     sysexit()
