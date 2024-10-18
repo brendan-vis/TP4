@@ -11,6 +11,8 @@ parser.add_argument('-p', '--port', help="port utilisé",type=int, default=13337
 args = parser.parse_args()
 
 port = args.port
+print(port)
+
 
 if port < 0 or port > 65535:
     print(f"ERROR -p argument invalide. Le port spécifié {port} n'est pas un port valide (de 0 à 65535).")
