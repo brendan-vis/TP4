@@ -11,14 +11,11 @@ parser.add_argument('-p', '--port', help="port utilisé",type=int, default=13337
 args = parser.parse_args()
 
 port = args.port
-print(port)
-print(type(port))
-
 
 if port < 0 or port > 65535:
     print(f"ERROR -p argument invalide. Le port spécifié {port} n'est pas un port valide (de 0 à 65535).")
     sysexit(1)
-if port >= 0 or port <= 1024:
+if port >= 0 and port <= 1024:
     print(f"ERROR -p argument invalide. Le port spécifié {port} est un port privilégié. Spécifiez un port au dessus de 1024.")
     sysexit(2)
 
