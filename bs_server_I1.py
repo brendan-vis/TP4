@@ -1,6 +1,7 @@
 import socket
 import argparse
 from sys import exit as sysexit
+from re import compile as recompile
 
 
 # On choisit une IP et un port où on va écouter
@@ -20,7 +21,8 @@ if port >= 0 and port <= 1024:
     sysexit(2)
 
 host = args.listen
-if host != r'^([0-9]{1,3}\.){3}[0-9]{1,3}$':
+ip_regex = recompile(r'^([0-9]{1,3}\.){3}[0-9]{1,3}$')
+if not ip_regex.match(host):
     print(f"ERROR -l argument invalide. L'adresse {host} n'est pas une adresse IP valide.")
     sysexit(3)
 
