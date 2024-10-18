@@ -23,6 +23,7 @@ try:
         if motif1.match(user_input) or motif2.match(user_input):
             user_input = bytes(user_input, "utf-8")
             s.sendall(user_input)
+            print(f"yo")
         else:
             raise TypeError("Il manque le mot waf ou meo")
     else:
