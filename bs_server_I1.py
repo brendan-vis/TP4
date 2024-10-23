@@ -1,5 +1,7 @@
 import socket
 import argparse
+import psutil
+from socket import AddressFamily
 from sys import exit as sysexit
 from re import compile as recompile
 
@@ -26,9 +28,13 @@ if not ip_regex.match(host):
     print(f"ERROR -l argument invalide. L'adresse {host} n'est pas une adresse IP valide.")
     sysexit(3)
 
-
-# if host != :
-#     print(f"")# print(args)
+res = psutil.net_if_addrs()['Wi-Fi']
+for infos in res:
+    if infos.family == AddressFamily.AF_INET:
+        ip = infos.address
+        if host != ip:
+            print(f"ERROR -l argument invalide. L'adresse {host} n'est pas l'une des adresses IP de cette machine.")
+            sysexit(4)
 
 
 # On crée un objet socket
