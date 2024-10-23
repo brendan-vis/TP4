@@ -9,6 +9,7 @@ from re import compile as recompile
 parser = argparse.ArgumentParser()
 parser.add_argument('-p', '--port', help="port utilisé",type=int, default=13337)
 parser.add_argument('-l', '--listen', help="ip sur laquelle écoute",type=str, default="127.0.0.1")
+parser.add_argument('-h', '--help', help="information")
 args = parser.parse_args()
 
 port = args.port
@@ -29,7 +30,7 @@ res = psutil.net_if_addrs()['Wi-Fi']
 for infos in res:
     if infos.family == AddressFamily.AF_INET:
         ip = infos.address
-        print(f"{ip}")
+        # print(f"{ip}")
         if host != ip:
             print(f"ERROR -l argument invalide. L'adresse {host} n'est pas l'une des adresses IP de cette machine.")
             sysexit(4)
